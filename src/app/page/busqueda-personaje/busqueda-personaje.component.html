@@ -1,13 +1,6 @@
+<p>busqueda-personaje works!</p>
 <div class="container">
-    <h4>Paginas: {{numeroPaginas}}</h4>
-    <h4>Numero paginas: {{actualPagina}}</h4>
-    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-        <button type="button" (click)="anteriorPagina()" class="btn btn-danger me-2"
-        [disabled]="actualPagina==1">Anterior</button>
-        
-        <button type="button" (click)="siguientePagina()" class="btn btn-primary me-2"
-        [disabled]="actualPagina==numeroPaginas">Siguiente</button>
-    </div>
+   
     <div class="row g-3 mt-2">
         <div class="col-12 col-md-6 col-lg-3  mb-2 " *ngFor="let personaje of personajes" 
        >

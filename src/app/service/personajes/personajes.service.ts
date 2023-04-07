@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Characters } from 'src/app/models/characters';
+import { Characters, Result } from 'src/app/models/characters';
 import { environment } from 'src/environments/environment';
 
 const base_url: String = environment.characters;
@@ -20,6 +20,14 @@ export class PersonajesService {
 
   obtenerPersonajes(numeroPagina:number){
     return this.servicePersonajes.get<Characters>(`${base_url}/?page=${numeroPagina}`);
+  }
+
+  obtenerDetallePersonaje(idPersonaje:number){
+    return this.servicePersonajes.get<Result>(`${base_url}/${idPersonaje}`);
+  }
+
+  bsquedaPersonaje(busqueda:string){
+    return this.servicePersonajes.get<Characters>(`${base_url}/?name=${busqueda}`);
   }
 
 }

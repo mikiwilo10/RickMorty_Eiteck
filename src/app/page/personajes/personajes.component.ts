@@ -24,7 +24,6 @@ export class PersonajesComponent implements OnInit {
 
   siguientePagina() {
     this.actualPagina++;
-    console.log('q')
     this.obtenerPersonajes()
   }
 
@@ -33,7 +32,7 @@ export class PersonajesComponent implements OnInit {
     this.obtenerPersonajes()
   }
 
-  obtenerPersonajes(){
+  obtenerPersonajes() {
     this.servicePersonaje.obtenerPersonajes(this.actualPagina).subscribe(
       respuesta => {
         this.personajes = respuesta['results'];
@@ -41,6 +40,7 @@ export class PersonajesComponent implements OnInit {
       }
     )
   }
+
 
 
 }
