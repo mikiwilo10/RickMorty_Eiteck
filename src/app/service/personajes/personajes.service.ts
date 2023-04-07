@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Characters, Result } from 'src/app/models/characters';
 import { environment } from 'src/environments/environment';
-
+import { catchError } from 'rxjs/operators';
 const base_url: String = environment.characters;
 
 
@@ -27,7 +27,8 @@ export class PersonajesService {
   }
 
   bsquedaPersonaje(busqueda:string){
-    return this.servicePersonajes.get<Characters>(`${base_url}/?name=${busqueda}`);
+    return this.servicePersonajes.get<Characters>(`${base_url}/?name=${busqueda}`)
+    ;
   }
 
 }
