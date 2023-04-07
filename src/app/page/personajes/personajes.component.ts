@@ -10,7 +10,7 @@ import { PersonajesService } from 'src/app/service/personajes/personajes.service
 })
 export class PersonajesComponent implements OnInit {
 
-  personajes: Result[] = [];
+  public personajes: Result[] = [];
   public numeroPaginas: number = 0;
   public actualPagina: number = 1;
 
@@ -41,6 +41,14 @@ export class PersonajesComponent implements OnInit {
     )
   }
 
+
+  buscarPersonajes(busqueda: string) {
+    this.servicePersonaje.bsquedaPersonaje(busqueda).subscribe(
+      respuesta => {
+        this.personajes = respuesta['results'];
+      }
+    )
+  }
 
 
 }

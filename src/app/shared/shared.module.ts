@@ -4,21 +4,26 @@ import { PersonajeCardComponent } from './personaje-card/personaje-card.componen
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchComponent } from './search/search.component';
 
+import { RouterModule } from '@angular/router';
+import { CardComponent } from './card/card.component';
 
 
 @NgModule({
   declarations: [
     PersonajeCardComponent,
     NavbarComponent,
-    SearchComponent
+    SearchComponent,
+    CardComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     PersonajeCardComponent,
     NavbarComponent,
-    SearchComponent
+    SearchComponent,
+    CardComponent
 
   ]
 

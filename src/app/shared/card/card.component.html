@@ -1,0 +1,40 @@
+<div class="card border border-dark"  *ngIf="character">
+    <img [src]=character.image  alt="" class="card-img-top">
+    <div class="card-body">
+        <div class="card-title text-center">
+            <strong>{{character.name}}</strong>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item " [ngClass]="{'text-danger': character.status =='Dead' ,
+            'text-success': character.status =='Alive',
+            'text-warning': character.status =='unknown'}">
+                Estatus: {{character.status}}</li>
+            <li class="list-group-item">Especie: {{character.species}}</li>
+            <li class="list-group-item">Genero: {{character.gender}}</li>
+            <li class="list-group-item">Origen: {{character.origin.name}}</li>
+            <li class="list-group-item">Locacion: {{character.location.name}}</li>
+            <li class="list-group-item">Creacion: {{character.created}}</li>
+        </ul>
+    </div>
+</div>
+<!-- 
+
+<div class="card border border-dark"  *ngIf="character">
+    <img [src]=character.image style="height: 100% ; width: 100%;" alt="" class="card-img-top">
+    <div class="card-body">
+        <div class="card-title text-center">
+            <strong>{{character.name}}</strong>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item " [ngClass]="{'text-danger': character.status =='Dead' ,
+            'text-success': character.status =='Alive',
+            'text-warning': character.status =='unknown'}">
+                Estatus: {{character.status}}</li>
+            <li class="list-group-item">Especie: {{character.species}}</li>
+            <li class="list-group-item">Genero: {{character.gender}}</li>
+            <li class="list-group-item">Origen: {{character.origin.name}}</li>
+            <li class="list-group-item">Locacion: {{character.location.name}}</li>
+            <li class="list-group-item">Creacion: {{character.created}}</li>
+        </ul>
+    </div>
+</div> -->

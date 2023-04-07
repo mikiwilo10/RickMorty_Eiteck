@@ -1,26 +1,8 @@
 <button routerLink="/personajes" class="btn btn-primary btn-lg mt-3">
     <i class="bi bi-arrow-left">Regresar</i>
   </button>
-<div class="row justify-content-center mt-3">
-    <div class="col-xs-12 col-sm-6 col-md-6 justify-content-center">
-        <div class="card border border-dark"  *ngIf="character">
-            <img [src]=character.image style="height: 100% ; width: 100%;" alt="" class="card-img-top">
-            <div class="card-body">
-                <div class="card-title text-center">
-                    <strong>{{character.name}}</strong>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item " [ngClass]="{'text-danger': character.status =='Dead' ,
-                    'text-success': character.status =='Alive',
-                    'text-warning': character.status =='unknown'}">
-                        Estatus: {{character.status}}</li>
-                    <li class="list-group-item">Especie: {{character.species}}</li>
-                    <li class="list-group-item">Genero: {{character.gender}}</li>
-                    <li class="list-group-item">Origen: {{character.origin.name}}</li>
-                    <li class="list-group-item">Locacion: {{character.location.name}}</li>
-                    <li class="list-group-item">Creacion: {{character.created}}</li>
-                </ul>
-            </div>
-        </div>
+<div class="row justify-content-center mt-3" style="width: 50rem;">
+    <div class="col-sm-6 col-md-6 justify-content-center">
+        <app-card  [character]="character"></app-card>
     </div>
 </div>

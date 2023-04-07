@@ -10,12 +10,10 @@ import { Router } from '@angular/router';
 export class SearchComponent implements OnInit {
   public search: string = '';
   @ViewChild('txtSearch') txtSearch!: ElementRef<HTMLInputElement>;
-
-  // @Output() onEnter: EventEmitter<string> = new EventEmitter();
   @Input() placeholder: string = '';
-
+  @Output() onEnter: EventEmitter<string> = new EventEmitter();
+  
   constructor(
-    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -27,9 +25,7 @@ export class SearchComponent implements OnInit {
     if (valor.trim().length === 0) {
       return;
     }
-    this.router.navigate(['/busqueda'], {
-      queryParams: { parametro: valor  },
-    })
+    this.onEnter.emit(this.search);
     this.txtSearch.nativeElement.value = '';
   }
 }
