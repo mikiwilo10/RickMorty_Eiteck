@@ -10,22 +10,37 @@ import { PersonajesService } from 'src/app/service/personajes/personajes.service
 })
 export class PersonajesComponent implements OnInit {
 
-  personajes: Result[]=[];
-  private numeroPagina:number=2;
+  personajes: Result[] = [];
+  public numeroPaginas: number = 0;
+  public actualPagina: number = 1;
+
   constructor(
-    private servicePersonaje:PersonajesService
+    private servicePersonaje: PersonajesService
   ) { }
 
   ngOnInit(): void {
-    
-      // this.servicePersonaje.obtenerPersonajes().subscribe(console.log)
-      this.servicePersonaje.obtenerPersonajes(this.numeroPagina).subscribe( 
-        respuesta => {
-          this.personajes = respuesta['results'];
-          console.log(respuesta)
-        }
-      )
-     
+    this.obtenerPersonajes()
   }
+
+  siguientePagina() {
+    this.actualPagina++;
+    console.log('q')
+    this.obtenerPersonajes()
+  }
+
+  anteriorPagina() {
+    this.actualPagina--;
+    this.obtenerPersonajes()
+  }
+
+  obtenerPersonajes(){
+    this.servicePersonaje.obtenerPersonajes(this.actualPagina).subscribe(
+      respuesta => {
+        this.personajes = respuesta['results'];
+        this.numeroPaginas = respuesta['info']['pages'];
+      }
+    )
+  }
+
 
 }

@@ -1,23 +1,32 @@
+<p>Personajes Rick & Morty</p>
+
 <div class="container">
-    <!-- <p>Personajes Rick & Morty</p> -->
-    <div class="row g-3">
+    <h4>Paginas: {{numeroPaginas}}</h4>
+    <h4>Numero paginas: {{actualPagina}}</h4>
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <button type="button" (click)="anteriorPagina()" class="btn btn-danger me-2"
+        [disabled]="actualPagina==1">Anterior</button>
+        
+        <button type="button" (click)="siguientePagina()" class="btn btn-primary me-2"
+        [disabled]="actualPagina==numeroPaginas">Siguiente</button>
+    </div>
+    <div class="row g-3 mt-2">
         <div class="col-12 col-md-6 col-lg-3  mb-2 " *ngFor="let personaje of personajes">
             <div class="card border border-dark">
-                <img [src]=personaje.image style="height: 100% ; width: 100%;"  alt="" class="card-img-top">
+                <img [src]=personaje.image style="height: 100% ; width: 100%;" alt="" class="card-img-top">
                 <div class="card-body">
                     <div class="card-title text-center">
                         <strong>{{personaje.name}}</strong>
                     </div>
-                    <ul class="list-group list-group-flush" >
-                        <li class="list-group-item " 
-                        [ngClass]="{'text-danger': personaje.status =='Dead' ,
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item " [ngClass]="{'text-danger': personaje.status =='Dead' ,
                         'text-success': personaje.status =='Alive',
                         'text-warning': personaje.status =='unknown'}">
-                        Estatus: {{personaje.status}}</li>
+                            Estatus: {{personaje.status}}</li>
                         <li class="list-group-item">Especie: {{personaje.species}}</li>
-                        <li class="list-group-item">Genero:  {{personaje.gender}}</li>
-                        <li class="list-group-item">Origen:  {{personaje.origin.name}}</li>
-                      </ul>
+                        <li class="list-group-item">Genero: {{personaje.gender}}</li>
+                        <li class="list-group-item">Origen: {{personaje.origin.name}}</li>
+                    </ul>
                 </div>
             </div>
 
